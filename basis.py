@@ -211,12 +211,3 @@ class MomentumBasis(Basis):
         R = self.orbit_len[rep]
         coeff = cmath.exp(1j * self.k * shift) / math.sqrt(R)
         return [(idx, coeff)]
-
-
-class TranslationBasis(MomentumBasis):
-    """
-    Translation-invariant basis = momentum k=0 sector.
-    This is just MomentumBasis with m=0.
-    """
-    def __init__(self, L: int, n_up: int | None = None):
-        super().__init__(L=L, m=0, n_up=n_up)
